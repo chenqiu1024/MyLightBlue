@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8490DF931C4DD8E6008BB6E2 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490DF921C4DD8E6008BB6E2 /* PeripheralViewController.m */; };
 		BB5A6BCA1C3226A600D7F0FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A6BC91C3226A600D7F0FA /* main.m */; };
 		BB5A6BCD1C3226A600D7F0FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A6BCC1C3226A600D7F0FA /* AppDelegate.m */; };
 		BB5A6BD01C3226A600D7F0FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A6BCF1C3226A600D7F0FA /* ViewController.m */; };
@@ -15,6 +16,7 @@
 		BB5A6BD81C3226A700D7F0FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB5A6BD61C3226A700D7F0FA /* LaunchScreen.storyboard */; };
 		BB5A6BE31C3226A700D7F0FA /* TestCoreBluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A6BE21C3226A700D7F0FA /* TestCoreBluetoothTests.m */; };
 		BB5A6BEE1C3226A700D7F0FA /* TestCoreBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A6BED1C3226A700D7F0FA /* TestCoreBluetoothUITests.m */; };
+		BB5A6BFC1C3226DD00D7F0FA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB5A6BFB1C3226DD00D7F0FA /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8490DF911C4DD8E6008BB6E2 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralViewController.h; sourceTree = "<group>"; };
+		8490DF921C4DD8E6008BB6E2 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
 		BB5A6BC51C3226A600D7F0FA /* TestCoreBluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCoreBluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5A6BC91C3226A600D7F0FA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB5A6BCB1C3226A600D7F0FA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 		BB5A6BE91C3226A700D7F0FA /* TestCoreBluetoothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCoreBluetoothUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5A6BED1C3226A700D7F0FA /* TestCoreBluetoothUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestCoreBluetoothUITests.m; sourceTree = "<group>"; };
 		BB5A6BEF1C3226A700D7F0FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB5A6BFB1C3226DD00D7F0FA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB5A6BFC1C3226DD00D7F0FA /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 		BB5A6BBC1C3226A600D7F0FA = {
 			isa = PBXGroup;
 			children = (
+				BB5A6BFB1C3226DD00D7F0FA /* CoreBluetooth.framework */,
 				BB5A6BC71C3226A600D7F0FA /* TestCoreBluetooth */,
 				BB5A6BE11C3226A700D7F0FA /* TestCoreBluetoothTests */,
 				BB5A6BEC1C3226A700D7F0FA /* TestCoreBluetoothUITests */,
@@ -110,6 +117,8 @@
 				BB5A6BD61C3226A700D7F0FA /* LaunchScreen.storyboard */,
 				BB5A6BD91C3226A700D7F0FA /* Info.plist */,
 				BB5A6BC81C3226A600D7F0FA /* Supporting Files */,
+				8490DF911C4DD8E6008BB6E2 /* PeripheralViewController.h */,
+				8490DF921C4DD8E6008BB6E2 /* PeripheralViewController.m */,
 			);
 			path = TestCoreBluetooth;
 			sourceTree = "<group>";
@@ -272,6 +281,7 @@
 			files = (
 				BB5A6BD01C3226A600D7F0FA /* ViewController.m in Sources */,
 				BB5A6BCD1C3226A600D7F0FA /* AppDelegate.m in Sources */,
+				8490DF931C4DD8E6008BB6E2 /* PeripheralViewController.m in Sources */,
 				BB5A6BCA1C3226A600D7F0FA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestCoreBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = madv360.TestCoreBluetooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestCoreBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = madv360.TestCoreBluetooth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +510,7 @@
 				BB5A6BF41C3226A700D7F0FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB5A6BF51C3226A700D7F0FA /* Build configuration list for PBXNativeTarget "TestCoreBluetoothTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +519,7 @@
 				BB5A6BF71C3226A700D7F0FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB5A6BF81C3226A700D7F0FA /* Build configuration list for PBXNativeTarget "TestCoreBluetoothUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +528,7 @@
 				BB5A6BFA1C3226A700D7F0FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
