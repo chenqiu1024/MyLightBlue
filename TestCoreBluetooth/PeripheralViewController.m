@@ -7,6 +7,7 @@
 //
 
 #import "PeripheralViewController.h"
+#import "CharacteristicViewController.h"
 
 #pragma mark    Cell Content Views
 
@@ -46,7 +47,9 @@
         [peripheral discoverCharacteristics:nil forService:obj];
     }];
     
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^() {
+        [self.tableView reloadData];
+    });
 }
 /*
  2015-12-29 18:57:48.738 TestCoreBluetooth[10001:3264004] CBCharacteristic.UUID = "System ID"
@@ -69,10 +72,17 @@
             {
                 [peripheral readValueForCharacteristic:obj];
             }
+            
+            if (obj.properties & CBCharacteristicPropertyNotify)
+            {
+                [peripheral setNotifyValue:YES forCharacteristic:obj];
+            }
         }
     }];
     
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^() {
+        [self.tableView reloadData];
+    });
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
@@ -99,6 +109,11 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+//    self.peripheral.delegate = self;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     self.peripheral.delegate = self;
     [self.peripheral discoverServices:nil];
@@ -148,7 +163,7 @@
     {
         UITableViewCell* headerCell = [tableView dequeueReusableCellWithIdentifier:@"Header"];
         CBService* service = [self.peripheral.services objectAtIndex:section - 2];
-        headerCell.textLabel.text = service.UUID.UUIDString;
+        headerCell.textLabel.text = [service.UUID description];
         return headerCell;
     }
     else
@@ -182,7 +197,8 @@
                     break;
             }
             
-            summaryCell.uuidLabel.text = self.peripheral.identifier.UUIDString;
+            CBUUID* cbUUID = [CBUUID UUIDWithNSUUID:self.peripheral.identifier];
+            summaryCell.uuidLabel.text = [cbUUID description];
         }
             break;
         case 1:
@@ -191,16 +207,62 @@
             NSString* key = [_advertisementDataKeys objectAtIndex:indexPath.row];
             id data = [self.advertisementData objectForKey:key];
             cell.detailTextLabel.text = key;
-            cell.textLabel.text = [data description];
+            if ([data isKindOfClass:NSArray.class])
+            {
+                cell.textLabel.text = [data[0] description];;
+            }
+            else if ([data isKindOfClass:NSData.class])
+            {
+                NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                cell.textLabel.text = str;
+            }
+            else
+            {
+                cell.textLabel.text = [data description];
+            }
         }
             break;
         default:
         {
             cell = [tableView dequeueReusableCellWithIdentifier:@"Item"];
+            CBService* service = [self.peripheral.services objectAtIndex:indexPath.section - 2];
+            CBCharacteristic* character = [service.characteristics objectAtIndex:indexPath.row];
+            
+            NSMutableString* propertyStr = [[NSMutableString alloc] init];
+            if (character.properties & CBCharacteristicPropertyRead)
+                [propertyStr appendString:@"Read "];
+            if (character.properties & CBCharacteristicPropertyWrite)
+                [propertyStr appendString:@"Write "];
+            if (character.properties & CBCharacteristicPropertyNotify)
+                [propertyStr appendString:@"Notify "];
+            if (character.properties & CBCharacteristicPropertyBroadcast)
+                [propertyStr appendString:@"Broadcast "];
+            cell.detailTextLabel.text = propertyStr;
         }
             break;
     }
     return cell;
+}
+
+#pragma mark    UITableViewDelegate
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section > 1)
+    {
+        [self performSegueWithIdentifier:@"gotoCharacteristic" sender:self];
+    }
+}
+
+#pragma mark    Navigation
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+    CBService* service = [self.peripheral.services objectAtIndex:indexPath.section - 2];
+    CBCharacteristic* character = [service.characteristics objectAtIndex:indexPath.row];
+    
+    CharacteristicViewController* destVC = segue.destinationViewController;
+    destVC.characteristic = character;
+    self.peripheral.delegate = destVC;
 }
 
 @end

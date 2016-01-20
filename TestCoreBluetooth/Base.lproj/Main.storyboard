@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1202" y="327"/>
+            <point key="canvasLocation" x="1202" y="-365"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="btj-tm-tup">
@@ -169,10 +169,83 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="Ijo-wV-Pc1" kind="push" identifier="gotoCharacteristic" id="PgG-u4-IPn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NeW-4X-iEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="219" y="255"/>
+            <point key="canvasLocation" x="2043" y="-365"/>
+        </scene>
+        <!--Characteristic-->
+        <scene sceneID="XIZ-WQ-4qr">
+            <objects>
+                <viewController id="Ijo-wV-Pc1" userLabel="Characteristic" customClass="CharacteristicViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6fY-8G-o2F"/>
+                        <viewControllerLayoutGuide type="bottom" id="d2A-pv-CDk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f2j-NE-ozF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Value: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1q-qq-9ch">
+                                <rect key="frame" x="253" y="94" width="93.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JrE-qx-noU">
+                                <rect key="frame" x="379" y="150" width="37" height="30"/>
+                                <state key="normal" title="Write"/>
+                                <connections>
+                                    <action selector="onWriteButtonPressed:" destination="Ijo-wV-Pc1" eventType="touchUpInside" id="OxE-d4-uAy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzh-PD-uiy">
+                                <rect key="frame" x="259" y="207" width="82" height="30"/>
+                                <state key="normal" title="Set Notified"/>
+                                <connections>
+                                    <action selector="onSetNotifiedButtonPressed:" destination="Ijo-wV-Pc1" eventType="touchUpInside" id="uFj-zH-t9h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRI-b4-B5B">
+                                <rect key="frame" x="379" y="89" width="35" height="30"/>
+                                <state key="normal" title="Read"/>
+                                <connections>
+                                    <action selector="onReadButtonPressed:" destination="Ijo-wV-Pc1" eventType="touchUpInside" id="fX3-L3-wbB"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q80-xA-7Ez">
+                                <rect key="frame" x="253" y="150" width="93.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JrE-qx-noU" firstAttribute="leading" secondItem="Q80-xA-7Ez" secondAttribute="trailing" constant="32.5" id="2RS-st-lT7"/>
+                            <constraint firstItem="l1q-qq-9ch" firstAttribute="top" secondItem="6fY-8G-o2F" secondAttribute="bottom" constant="30" id="Izo-kd-e9M"/>
+                            <constraint firstItem="Q80-xA-7Ez" firstAttribute="centerX" secondItem="f2j-NE-ozF" secondAttribute="centerX" id="LSY-Tz-1fX"/>
+                            <constraint firstItem="JrE-qx-noU" firstAttribute="centerY" secondItem="Q80-xA-7Ez" secondAttribute="centerY" id="Sc5-D6-tZs"/>
+                            <constraint firstItem="l1q-qq-9ch" firstAttribute="centerX" secondItem="f2j-NE-ozF" secondAttribute="centerX" id="b3V-oH-dY5"/>
+                            <constraint firstItem="JrE-qx-noU" firstAttribute="top" secondItem="qRI-b4-B5B" secondAttribute="bottom" constant="31" id="ck5-Pr-EZT"/>
+                            <constraint firstItem="Q80-xA-7Ez" firstAttribute="top" secondItem="l1q-qq-9ch" secondAttribute="bottom" constant="36" id="k6n-7Y-Uch"/>
+                            <constraint firstItem="JrE-qx-noU" firstAttribute="leading" secondItem="qRI-b4-B5B" secondAttribute="leading" id="mW7-Re-g0N"/>
+                            <constraint firstItem="gzh-PD-uiy" firstAttribute="centerX" secondItem="f2j-NE-ozF" secondAttribute="centerX" id="o3g-aJ-jKD"/>
+                            <constraint firstItem="gzh-PD-uiy" firstAttribute="top" secondItem="Q80-xA-7Ez" secondAttribute="bottom" constant="27" id="rYh-nb-aEe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OeO-7T-rEm"/>
+                    <connections>
+                        <outlet property="btnSetNotified" destination="gzh-PD-uiy" id="yxs-Xb-pah"/>
+                        <outlet property="lblReadValue" destination="l1q-qq-9ch" id="7WU-aB-LGw"/>
+                        <outlet property="txfWriteValue" destination="Q80-xA-7Ez" id="AdR-TR-bqX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zza-n4-lIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2760" y="-365"/>
         </scene>
     </scenes>
 </document>

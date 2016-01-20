@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841646781C4F6059002E169B /* CharacteristicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841646771C4F6059002E169B /* CharacteristicViewController.m */; };
 		8490DF931C4DD8E6008BB6E2 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490DF921C4DD8E6008BB6E2 /* PeripheralViewController.m */; };
 		BB5A6BCA1C3226A600D7F0FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A6BC91C3226A600D7F0FA /* main.m */; };
 		BB5A6BCD1C3226A600D7F0FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5A6BCC1C3226A600D7F0FA /* AppDelegate.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		841646761C4F6059002E169B /* CharacteristicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacteristicViewController.h; sourceTree = "<group>"; };
+		841646771C4F6059002E169B /* CharacteristicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacteristicViewController.m; sourceTree = "<group>"; };
 		8490DF911C4DD8E6008BB6E2 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralViewController.h; sourceTree = "<group>"; };
 		8490DF921C4DD8E6008BB6E2 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
 		BB5A6BC51C3226A600D7F0FA /* TestCoreBluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCoreBluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +122,8 @@
 				BB5A6BC81C3226A600D7F0FA /* Supporting Files */,
 				8490DF911C4DD8E6008BB6E2 /* PeripheralViewController.h */,
 				8490DF921C4DD8E6008BB6E2 /* PeripheralViewController.m */,
+				841646761C4F6059002E169B /* CharacteristicViewController.h */,
+				841646771C4F6059002E169B /* CharacteristicViewController.m */,
 			);
 			path = TestCoreBluetooth;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 			files = (
 				BB5A6BD01C3226A600D7F0FA /* ViewController.m in Sources */,
 				BB5A6BCD1C3226A600D7F0FA /* AppDelegate.m in Sources */,
+				841646781C4F6059002E169B /* CharacteristicViewController.m in Sources */,
 				8490DF931C4DD8E6008BB6E2 /* PeripheralViewController.m in Sources */,
 				BB5A6BCA1C3226A600D7F0FA /* main.m in Sources */,
 			);
