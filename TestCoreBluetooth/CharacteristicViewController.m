@@ -8,6 +8,43 @@
 
 #import "CharacteristicViewController.h"
 
+NSData* dataWithHexString(NSString* hexString) {
+    const char* cstr = [hexString UTF8String];
+    int length = (int) hexString.length;
+    int dataLength = (length + 1) / 2;
+    
+    uint8_t* hexData = (uint8_t*) malloc(dataLength);
+    memset(hexData, 0, dataLength);
+    
+    bool highHalfByte = false;
+    uint8_t* pDst = hexData + dataLength - 1;
+    for (int i=length-1; i>=0; i--)
+    {
+        char c = cstr[i];
+        uint8_t halfByte = 0;
+        if (c >= '0' && c <= '9')
+            halfByte = c - '0';
+        else if (c >= 'a' && c <= 'f')
+            halfByte = c - 'a' + 10;
+        else if (c >= 'A' && c <= 'F')
+            halfByte = c - 'A' + 10;
+        
+        if (highHalfByte)
+        {
+            *pDst-- |= ((halfByte << 4) & 0xf0);
+            highHalfByte = false;
+        }
+        else
+        {
+            *pDst |= (halfByte & 0x0f);
+            highHalfByte = true;
+        }
+    }
+    
+    return [NSData dataWithBytes:hexData length:dataLength];
+}
+
+
 @implementation CharacteristicViewController
 
 @synthesize characteristic;
@@ -17,7 +54,7 @@
 }
 
 - (IBAction)onWriteButtonPressed:(id)sender {
-    NSData* data = [self.txfWriteValue.text dataUsingEncoding:NSUTF8StringEncoding];
+    NSData* data = dataWithHexString(self.txfWriteValue.text);//[self.txfWriteValue.text dataUsingEncoding:NSUTF8StringEncoding];
     [self.characteristic.service.peripheral writeValue:data forCharacteristic:self.characteristic type:CBCharacteristicWriteWithoutResponse];
 }
 
